@@ -1,0 +1,75 @@
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { Avatar } from "antd";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import PopUpViewStory from "./PopUpViewStory";
+
+const StoryCard = ({ story }) => {
+  const { mode } = useSelector((state) => ({ ...state }));
+  const [visible, setVisible] = useState(false);
+
+  const handlePopUpView = () => {
+    setVisible(true);
+  };
+
+  return (
+    <>
+      <div
+        onClick={handlePopUpView}
+        style={
+          mode === "light"
+            ? { backgroundColor: "#d6d7da" }
+            : { backgroundColor: "rgb(0, 21, 41)" }
+        }
+        className="story-main-card mx-1"
+      >
+        {story.storyImages[0].resource_type === "video" ? (
+          <video
+            className="story-user-card-image"
+            src={story.storyImages[0].url}
+            alt="story"
+            width="113px"
+            height="100%"
+            style={{ obhere: "fill" }}
+          />
+        ) : (
+          <img
+            className="story-user-card-image"
+            src={story.storyImages[0].url}
+            alt="story"
+            width="113px"
+            height="100%"
+          />
+        )}
+
+        <div className="user-avatar-text">
+          <span className="user-avatar">
+            {story.postedBy.profilePhoto.length >= 1 ? (
+              <Avatar
+                src={
+                  story.postedBy.profilePhoto[
+                    story.postedBy.profilePhoto.length - 1
+                  ].url
+                }
+                size={35}
+              />
+            ) : (
+              <Avatar style={{ backgroundColor: "gray" }}>
+                {story.postedBy.firstName.slice(0, 1)}
+              </Avatar>
+            )}
+          </span>
+          <p>{story.postedBy.firstName + " " + story.postedBy.lastName}</p>
+        </div>
+      </div>
+      <PopUpViewStory
+        story={story}
+        mode={mode}
+        visible={visible}
+        setVisible={setVisible}
+      />
+    </>
+  );
+};
+
+export default StoryCard;

@@ -1,0 +1,13 @@
+.sidebar-height {
+  height: 100vh;
+  width: 14rem;
+  padding: 5px;
+  padding-top: 15px;
+  max-width: 14rem;
+}
+
+@media screen and (max-width: 750px) {
+  .sidebar {
+    display: none;
+  }
+}

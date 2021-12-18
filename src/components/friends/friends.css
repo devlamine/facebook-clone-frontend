@@ -1,0 +1,19 @@
+.friend-list-card {
+  height: 350px;
+  width: 250px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.friend-list-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 18px;
+}

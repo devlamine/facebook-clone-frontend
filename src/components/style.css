@@ -1,0 +1,36 @@
+/* .like:hover,
+.comment:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+  border-radius: 20px;
+  color: black;
+}
+
+.like,
+.comment {
+  width: 50%;
+} */
+
+.likeAnimation {
+  animation: likeAnimation 1s ease-in-out;
+}
+
+.gif-emojies {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  background-color: rgba(195, 197, 199, 0.623);
+}
+
+@keyframes likeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+    /* transform: rotate(30deg); */
+  }
+  100% {
+    transform: scale(1);
+  }
+}

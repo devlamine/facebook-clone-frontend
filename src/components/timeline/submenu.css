@@ -1,0 +1,84 @@
+.sub-menu {
+  display: flex;
+  list-style: none;
+  margin-left: 8%;
+  z-index: 100;
+}
+
+.sub-menu li {
+  margin-right: 45px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sub-menu li:hover {
+  background-color: rgb(194, 194, 194);
+  border-radius: 10px;
+}
+
+.sticky-menu {
+  position: sticky;
+  top: 55px;
+  z-index: 100;
+  background-color: white;
+}
+
+.main-page-timeline {
+  background-color: #f0f2f5;
+}
+.userInfo-sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.userinfo-div-main {
+  margin-top: 15%;
+  position: sticky;
+  top: 30%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.photos-bg {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+}
+
+.sub-menu-friends {
+  display: flex;
+  list-style: none;
+  margin-left: 3%;
+}
+
+.sub-menu-friends li {
+  padding: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sub-menu-friends li:hover {
+  background-color: #f0f2f5d7;
+  border-radius: 3px;
+}
+
+.messenger-btn {
+  margin-left: 30vw;
+  background-color: #2374e1;
+  color: white;
+  border-radius: 12px;
+  width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.messenger-btn:hover {
+  background-color: #548dd8;
+  cursor: pointer;
+}

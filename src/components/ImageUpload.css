@@ -1,0 +1,7 @@
+.profile-images {
+  cursor: pointer;
+  transition: all 1s;
+}
+.profile-images:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,123 @@
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Avatar, Modal, Progress } from "antd";
+import { PresetColorTypes } from "antd/lib/_util/colors";
+import React, { useEffect, useState } from "react";
+import "./story.css";
+
+const PopUpViewStory = ({ visible, setVisible, story }) => {
+  const [percent, setPercent] = useState(0);
+  const [currentStoryImg, setCurrentStoryImg] = useState([]);
+  var per = 0;
+  let nProgressBar = [];
+
+  useEffect(() => {
+    loadProgresssBar();
+  }, [visible]);
+
+  const loadProgresssBar = () => {
+    var interval;
+    per = 0;
+
+    let totalLengthOfStories = nProgressBar.map(
+      (p) => p.props.children.props.percent
+    );
+
+    if (visible === true) {
+      interval = setInterval(() => {
+        if (percent < 100 && per < 100) {
+          per = per + 1;
+          setPercent(per);
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
+      console.log("this is the progressbar-->", totalLengthOfStories);
+    }
+  };
+
+  const progressBar = () => {
+    for (let i = 0; i < story.storyImages.length; i++) {
+      nProgressBar.push(
+        <div key={i} style={{ width: "100%", marginLeft: "2px" }}>
+          <Progress
+            percent={percent}
+            className="mx-2"
+            showInfo={false}
+            size="small"
+            status="normal"
+          />
+        </div>
+      );
+    }
+
+    return nProgressBar;
+  };
+
+  return (
+    <div>
+      <Modal
+        visible={visible}
+        footer={false}
+        onCancel={() => setVisible(false)}
+      >
+        <div
+          style={{
+            height: "60vh",
+            width: "40vw",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <LeftOutlined className="arrow-controller" />
+          </div>
+          <div className="text-center">
+            <img
+              src={story.storyImages[0].url}
+              height="300vh"
+              width="200vw"
+              style={{ position: "relative", borderRadius: "10px" }}
+            />
+            <div style={{ position: "absolute", top: "9%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "5px",
+                  width: "110%",
+                }}
+              >
+                {progressBar()}
+              </div>
+              <div className="d-flex">
+                {story.postedBy.profilePhoto.length >= 1 ? (
+                  <Avatar
+                    className="mx-2"
+                    src={
+                      story.postedBy.profilePhoto[
+                        story.postedBy.profilePhoto.length - 1
+                      ].url
+                    }
+                  />
+                ) : (
+                  <Avatar className="mx-2" style={{ backgroundColor: "blue" }}>
+                    {story.postedBy.firstName.slice(0, 1)}
+                  </Avatar>
+                )}
+                <p style={{ color: "white", marginLeft: "2px" }}>
+                  {story.postedBy.firstName + " " + story.postedBy.lastName}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <RightOutlined className="arrow-controller" />
+          </div>
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+export default PopUpViewStory;

@@ -1,0 +1,11 @@
+.dark-mode-sidebar {
+  background-color: rgb(0, 21, 41);
+  color: white;
+  overflow-y: auto;
+}
+
+.light-mode-sidebar {
+  background-color: white;
+  color: #000;
+  overflow-y: auto;
+}
