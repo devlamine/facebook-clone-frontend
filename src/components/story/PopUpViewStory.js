@@ -56,6 +56,9 @@ const PopUpViewStory = ({ visible, setVisible, story, mode }) => {
           key={i}
           style={{
             width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            marginRight: "2px",
           }}
         >
           <Progress
@@ -63,6 +66,7 @@ const PopUpViewStory = ({ visible, setVisible, story, mode }) => {
             showInfo={false}
             size="small"
             status="normal"
+            style={{ width: "100%" }}
           />
         </div>
       );
@@ -113,107 +117,124 @@ const PopUpViewStory = ({ visible, setVisible, story, mode }) => {
   };
 
   return (
-    <div>
-      <Modal
-        visible={visible}
-        footer={false}
-        onCancel={() => setVisible(false)}
-      >
+    <>
+      {visible && (
         <div
-          style={{
-            height: "60vh",
-            width: "40vw",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
+          style={
+            mode === "dark"
+              ? { backgroundColor: "#242526", color: "white" }
+              : { backgroundColor: "white", color: "black" }
+          }
+          className="story-modal"
         >
-          <div>
-            <LeftOutlined
-              onClick={handleLeftMove}
-              className="arrow-controller"
-            />
-          </div>
-          <div className="text-center">
-            <span>
-              {storyImages[loadImage]?.resource_type === "video" ? (
-                <video
-                  ref={ref}
-                  src={storyImages[loadImage]?.url}
-                  height="300vh"
-                  width="200vw"
-                  style={{
-                    position: "relative",
-                    borderRadius: "10px",
-                    objectFit: "fill",
-                  }}
-                  controls
-                  autoPlay
-                  onPlay={(e) => handlePlay(e)}
-                ></video>
-              ) : (
-                <img
-                  index={loadImage}
-                  src={storyImages[loadImage]?.url}
-                  height="300vh"
-                  width="200vw"
-                  style={{ position: "relative", borderRadius: "10px" }}
-                />
-              )}
-            </span>
-            <div
-              className="mx-2"
-              style={{
-                position: "absolute",
-                top: "9%",
-                // border: "2px solid red",
-                // paddingRight: "28px",
-                // width: "30vw",
-                // backgroundColor: "rgba(0, 0, 0, 0.300)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "5px",
-                  width: "110%",
-                }}
-              >
-                {progressBar()}
-              </div>
-              <div className="d-flex">
-                {story.postedBy.profilePhoto.length >= 1 ? (
-                  <Avatar
-                    className="mx-2"
-                    src={
-                      story.postedBy.profilePhoto[
-                        story.postedBy.profilePhoto.length - 1
-                      ].url
-                    }
-                  />
+          <span onClick={() => setVisible(!visible)} className="cancle-icon">
+            X
+          </span>
+          <div
+            style={{
+              height: "100vh",
+              width: "100vw",
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <LeftOutlined
+                onClick={handleLeftMove}
+                className="arrow-controller"
+              />
+            </div>
+            <div>
+              <div style={{ position: "relative" }}>
+                {storyImages[loadImage]?.resource_type === "video" ? (
+                  <video
+                    ref={ref}
+                    src={storyImages[loadImage]?.url}
+                    height="500vh"
+                    width="300vw"
+                    style={{
+                      borderRadius: "10px",
+                      objectFit: "fill",
+                      marginBottom: "30%",
+                    }}
+                    controls
+                    autoPlay
+                    onPlay={(e) => handlePlay(e)}
+                  ></video>
                 ) : (
-                  <Avatar className="mx-2" style={{ backgroundColor: "blue" }}>
-                    {story.postedBy.firstName.slice(0, 1)}
-                  </Avatar>
+                  <img
+                    index={loadImage}
+                    src={storyImages[loadImage]?.url}
+                    height="500vh"
+                    width="300vw"
+                    style={{ borderRadius: "10px", marginBottom: "30%" }}
+                    alt="story"
+                  />
                 )}
-                <p style={{ color: "white", marginLeft: "2px" }}>
-                  {story.postedBy.firstName + " " + story.postedBy.lastName}
-                </p>
+
+                <div
+                  className="mx-2"
+                  style={{
+                    position: "absolute",
+                    top: "0%",
+                    width: "100%",
+                    left: "-2.5%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: "5px",
+                      width: "100%",
+                    }}
+                  >
+                    {progressBar()}
+                  </div>
+                  <div className="d-flex">
+                    {story.postedBy.profilePhoto.length >= 1 ? (
+                      <Avatar
+                        className="mx-2"
+                        src={
+                          story.postedBy.profilePhoto[
+                            story.postedBy.profilePhoto.length - 1
+                          ].url
+                        }
+                      />
+                    ) : (
+                      <Avatar
+                        className="mx-2"
+                        style={{ backgroundColor: "blue" }}
+                      >
+                        {story.postedBy.firstName.slice(0, 1)}
+                      </Avatar>
+                    )}
+                    <p
+                      style={{
+                        color: "white",
+                        marginLeft: "2px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {story.postedBy.firstName + " " + story.postedBy.lastName}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div>
-            <RightOutlined
-              onClick={handleRightMove}
-              className="arrow-controller"
-            />
+            <div>
+              <RightOutlined
+                onClick={handleRightMove}
+                className="arrow-controller"
+              />
+            </div>
           </div>
         </div>
-      </Modal>
-    </div>
+      )}
+    </>
   );
 };
 

@@ -140,8 +140,9 @@ const Post = ({ post, mode, userData, selectedUserId }) => {
                 borderRadius: "15px",
                 boxShadow:
                   "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
-                backgroundColor: "#001529",
+                backgroundColor: "#242526",
               }
+          //"#001529"
         }
       >
         <div className="row">
@@ -372,7 +373,7 @@ const Post = ({ post, mode, userData, selectedUserId }) => {
                       outline: "none",
                       border: "none",
                       borderBottom: "1px solid grey",
-                      backgroundColor: "rgb(1,34,67)",
+                      backgroundColor: "#3a3b3c",
                       borderRadius: "20px",
                       padding: "5px",
                       marginBottom: "20px",

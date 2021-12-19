@@ -19,7 +19,7 @@ const UserFriends = ({ linkActive, mode, userData, setRunUseEffect }) => {
         <div
           style={
             mode === "dark"
-              ? { backgroundColor: "#012243" }
+              ? { backgroundColor: "#242526" }
               : { backgroundColor: "white" }
           }
           className="col-md-8 offset-md-2 photos-bg"

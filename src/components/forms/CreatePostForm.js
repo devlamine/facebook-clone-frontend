@@ -86,7 +86,7 @@ const CreatePostForm = ({
     <div
       style={
         mode === "dark"
-          ? { backgroundColor: "#00305e", color: "white", padding: "15px" }
+          ? { backgroundColor: "#242526", color: "white", padding: "15px" }
           : {
               backgroundColor: "#fff",
               color: "black",
@@ -157,14 +157,18 @@ const CreatePostForm = ({
                 rows="6"
                 style={
                   mode === "dark"
-                    ? { backgroundColor: "#00305e" }
+                    ? { backgroundColor: "#242526" }
                     : { backgroundColor: "white" }
                 }
                 placeholder={
-                  isAuthenticated() &&
-                  "What's on your mind, " +
-                    isAuthenticated().user.firstName +
-                    "?"
+                  (from === "home" &&
+                    isAuthenticated() &&
+                    "What's on your mind, " +
+                      isAuthenticated().user.firstName +
+                      "?") ||
+                  (from === "timeline" &&
+                    isAuthenticated() &&
+                    "Write somthing to " + userData.firstName + "...")
                 }
               />
 
@@ -272,7 +276,8 @@ const CreatePostForm = ({
               <button
                 onClick={handleSubmit}
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-secondary"
+                disabled={postBody.length === 0}
               >
                 Post
               </button>

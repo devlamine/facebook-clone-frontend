@@ -283,7 +283,7 @@ const ChatMain = ({
             style={
               mode === "light"
                 ? { backgroundColor: "white", color: "black", height: "89.5vh" }
-                : { backgroundColor: "#001529", height: "89.5vh" }
+                : { backgroundColor: "#242526", height: "89.5vh" }
             }
           >
             <div className="chat-main-user">
@@ -291,7 +291,7 @@ const ChatMain = ({
                 style={
                   mode === "light"
                     ? { backgroundColor: "white", color: "black" }
-                    : { backgroundColor: "blue", color: "white" }
+                    : { backgroundColor: "#18191a", color: "white" }
                 }
                 className="chat-main-user-profile"
               >

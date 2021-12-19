@@ -16,7 +16,6 @@ const FileUpload = ({
   btn,
 }) => {
   const token = isAuthenticated().token;
-  console.log();
 
   const fileUploadAndResize = (e) => {
     let files = e.target.files;

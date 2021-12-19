@@ -55,7 +55,7 @@ const ChooseAndCreateStory = ({ mode, setPreviewMode, images, setImages }) => {
       style={
         mode === "dark"
           ? {
-              backgroundColor: "rgb(1, 34, 67)",
+              backgroundColor: "#18191a",
               height: "100vh",
               marginLeft: "-18px",
               color: "white",

@@ -5,6 +5,7 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import { Avatar } from "antd";
 import { isAuthenticated } from "../functions/auth";
 import CreatePostModal from "./modal/CreatePostModal";
+import "./style.css";
 
 const WhatsInYourMind = ({
   mode,
@@ -39,7 +40,7 @@ const WhatsInYourMind = ({
                 height: "30%",
                 borderRadius: "12px",
                 boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                backgroundColor: "#001529",
+                backgroundColor: "#242526",
               }
         }
       >
@@ -62,16 +63,33 @@ const WhatsInYourMind = ({
             type="text"
             readOnly
             className="mx-2 post-input"
-            style={{
-              width: "100%",
-              outline: "none",
-              border: "none",
-              borderBottom: "1px solid grey",
-              backgroundColor: "#ebebeb",
-              borderRadius: "20px",
-              padding: "10px",
-              cursor: "pointer",
-            }}
+            style={
+              mode === "dark"
+                ? {
+                    width: "100%",
+                    height: "2.2rem",
+                    outline: "none",
+                    border: "none",
+                    borderBottom: "1px solid grey",
+                    backgroundColor: "#3a3b3c",
+                    borderRadius: "20px",
+                    padding: "0px 15px",
+                    marginTop: "5px",
+                    cursor: "pointer",
+                  }
+                : {
+                    width: "100%",
+                    height: "2.2rem",
+                    outline: "none",
+                    border: "none",
+                    borderBottom: "1px solid grey",
+                    backgroundColor: "#f5f5f5",
+                    borderRadius: "20px",
+                    padding: "0px 15px",
+                    cursor: "pointer",
+                    marginTop: "5px",
+                  }
+            }
             placeholder={
               (from === "home" &&
                 isAuthenticated() &&

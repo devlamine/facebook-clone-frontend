@@ -20,7 +20,7 @@ const CreatePostModal = ({
       <Modal
         style={
           mode === "dark"
-            ? { backgroundColor: "#00305e", color: "white" }
+            ? { backgroundColor: "#242526", color: "white" }
             : {
                 backgroundColor: "#fff",
                 color: "black",

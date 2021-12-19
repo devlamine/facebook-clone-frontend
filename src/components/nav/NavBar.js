@@ -76,7 +76,11 @@ const NavBar = () => {
         selectedKeys={[current]}
         onClick={handleClick}
         mode="horizontal"
-        theme={modeType}
+        style={
+          mode === "dark"
+            ? { backgroundColor: "#18191a", color: "white" }
+            : { backgroundColor: "#rgb(241, 239, 239)", color: "black" }
+        }
       >
         <Item key="logo">
           <Link to="/">

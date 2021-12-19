@@ -19,8 +19,6 @@ import {
 } from "@ant-design/icons";
 import { isAuthenticated } from "../../functions/auth";
 
-const { Item } = Menu;
-
 const SideBar = () => {
   const history = useHistory();
   useEffect(() => {
@@ -37,86 +35,84 @@ const SideBar = () => {
 
   const { mode } = useSelector((state) => ({ ...state }));
 
-  const handleClick = (e) => {
-    setCurrent(e.key);
-  };
-
   return (
-    <div className="sidebar">
-      <Menu
-        className="sidebar-height"
-        selectedKeys={[current]}
-        onClick={handleClick}
-        mode="inline"
-        theme={mode}
-      >
-        <Item
-          key="user"
-          icon={
-            isAuthenticated() &&
-            isAuthenticated().user.profilePhoto.length >= 1 ? (
-              <Avatar
-                src={
-                  isAuthenticated().user?.profilePhoto[profilePhotoLength - 1]
-                    .url
-                }
-                size={36}
-              />
-            ) : (
-              <Avatar style={{ backgroundColor: "blue" }}>
-                {firstName && firstName.slice(0, 1)}
-              </Avatar>
-            )
-          }
+    <div
+      className="sidebar-height sidebar"
+      style={
+        mode === "dark"
+          ? { backgroundColor: "#18191a", color: "white" }
+          : { backgroundColor: "rgb(240, 242, 245)" }
+      }
+    >
+      <div>
+        {isAuthenticated() &&
+        isAuthenticated().user.profilePhoto.length >= 1 ? (
+          <Avatar
+            src={
+              isAuthenticated().user?.profilePhoto[profilePhotoLength - 1].url
+            }
+            size={36}
+          />
+        ) : (
+          <Avatar style={{ backgroundColor: "blue" }}>
+            {firstName && firstName.slice(0, 1)}
+          </Avatar>
+        )}
+        <Link
+          style={mode === "dark" ? { color: "white" } : { color: "black" }}
+          to={`/timeline/${isAuthenticated() && isAuthenticated().user._id}`}
         >
-          <Link
-            to={`/timeline/${isAuthenticated() && isAuthenticated().user._id}`}
-          >
-            {" "}
-            {firstName + " " + lastName}
-          </Link>
-        </Item>
-        <Item key="frinds" icon={<img src={frndLogo} width="30px" />}>
-          <Link
-            to={`/friends/home/${
-              isAuthenticated() && isAuthenticated().user._id
-            }`}
-          >
-            Friends
-          </Link>
-        </Item>
-        <Item
-          key="marketPlace"
-          icon={<img src={marketplaceLogo} width="30px" />}
+          {" "}
+          {firstName + " " + lastName}
+        </Link>
+      </div>
+      <div>
+        <img alt="" src={frndLogo} width="30px" />
+        <Link
+          style={mode === "dark" ? { color: "white" } : { color: "black" }}
+          to={`/friends/home/${
+            isAuthenticated() && isAuthenticated().user._id
+          }`}
         >
-          Market Place
-        </Item>
-        <Item key="jobs" icon={<img src={jobsLogo} width="30px" />}>
-          Jobs
-        </Item>
-        <Item key="events" icon={<img src={eventsLogo} width="30px" />}>
-          Events
-        </Item>
+          Friends
+        </Link>
+      </div>
+      <div>
+        <img src={marketplaceLogo} width="30px" alt="" />
+        Market Place
+      </div>
+      <div>
+        <img src={jobsLogo} width="30px" alt="" />
+        Jobs
+      </div>
+      <div>
+        <img src={eventsLogo} width="30px" alt="" />
+        Events
+      </div>
 
-        <Item key="watch" icon={<img src={watchLogo} width="30px" />}>
-          Watch
-        </Item>
+      <div>
+        <img src={watchLogo} width="30px" alt="" />
+        Watch
+      </div>
 
-        <Item key="pages" icon={<img src={pagesLogo} width="30px" />}>
-          Pages
-        </Item>
+      <div>
+        <img src={pagesLogo} width="30px" alt="" />
+        Pages
+      </div>
 
-        <Item key="memories" icon={<img src={memoriesLogo} width="30px" />}>
-          Mermories
-        </Item>
+      <div>
+        <img src={memoriesLogo} width="30px" alt="" />
+        Mermories
+      </div>
 
-        <Item key="group" icon={<img src={groupsLogo} width="30px" />}>
-          Groups
-        </Item>
-        <Item className="p-4" icon={<ArrowDownOutlined />} key="button">
-          Show More
-        </Item>
-      </Menu>
+      <div>
+        <img src={groupsLogo} width="30px" alt="" />
+        Groups
+      </div>
+      <div>
+        <ArrowDownOutlined />
+        Show More
+      </div>
     </div>
   );
 };

@@ -18,7 +18,9 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
   const [minimized, setMinimized] = useState(false);
 
   const dispatch = useDispatch();
-  const { chats, chatPopUpMinimized } = useSelector((state) => ({ ...state }));
+  const { chats, chatPopUpMinimized, mode } = useSelector((state) => ({
+    ...state,
+  }));
   const newChat = [];
 
   useEffect(() => {
@@ -86,6 +88,11 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
     <>
       {!chatPopUpMinimized && (
         <div
+          style={
+            mode === "dark"
+              ? { backgroundColor: "#242526" }
+              : { backgroundColor: "#f0f2f5" }
+          }
           className={
             displaySize.width > 700 ? "pop-up-main" : "pop-up-main-full-width"
           }
@@ -142,7 +149,7 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
               <div
                 style={
                   displaySize.width > 700
-                    ? { height: "50vh", overflowY: "auto" }
+                    ? { height: "58vh", overflowY: "auto" }
                     : { height: "85vh", overflowY: "auto" }
                 }
               >
@@ -152,6 +159,7 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
                         <span ref={ref} key={j + i}>
                           <Message
                             isNew={false}
+                            mode={mode}
                             message={c}
                             own={userId === c?.senderId?._id}
                           />
@@ -161,7 +169,24 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
                   : "no chat"}
               </div>
               <span className="chat-main-input">
-                <input type="text" placeholder="Aa" autoFocus />
+                <input
+                  style={
+                    mode === "dark"
+                      ? {
+                          backgroundColor: "#3a3b3c",
+                          width: "98%",
+                          height: "30px",
+                        }
+                      : {
+                          backgroundColor: "#fff",
+                          width: "98%",
+                          height: "30px",
+                        }
+                  }
+                  type="text"
+                  placeholder="Aa"
+                  autoFocus
+                />
               </span>
             </>
           ) : chatData.length <= 0 ? (
@@ -216,15 +241,32 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
               <div
                 style={
                   displaySize.width > 700
-                    ? { height: "50vh", overflowY: "auto" }
+                    ? { height: "58vh", overflowY: "auto" }
                     : { height: "85vh", overflowY: "auto" }
                 }
               >
-                <Message selectedFriend={userData} isNew={true} />
+                <Message mode={mode} selectedFriend={userData} isNew={true} />
               </div>
 
               <span className="chat-main-input">
-                <input type="text" placeholder="Aa" autoFocus />
+                <input
+                  style={
+                    mode === "dark"
+                      ? {
+                          backgroundColor: "#3a3b3c",
+                          width: "98%",
+                          height: "30px",
+                        }
+                      : {
+                          backgroundColor: "#fff",
+                          width: "98%",
+                          height: "30px",
+                        }
+                  }
+                  type="text"
+                  placeholder="Aa"
+                  autoFocus
+                />
               </span>
             </>
           ) : (
@@ -241,11 +283,11 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
         >
           {userData?.profilePhoto?.length > 1 ? (
             <Avatar
-              size={60}
+              size={52}
               src={userData?.profilePhoto[userData.profilePhoto.length - 1].url}
             />
           ) : (
-            <Avatar style={{ backgroundColor: "blue" }} size={60}>
+            <Avatar style={{ backgroundColor: "blue" }} size={52}>
               {userData?.firstName?.slice(0, 1)}
             </Avatar>
           )}

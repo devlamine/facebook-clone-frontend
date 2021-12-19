@@ -5,7 +5,7 @@
   border-radius: 15px;
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
-  background-color: rgb(0, 21, 41);
+  background-color: #18191a;
   overflow-y: auto;
 }
 
@@ -16,6 +16,6 @@
   border-radius: 15px;
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
-  background-color: white;
+  background-color: rgb(240, 242, 245);
   overflow-y: auto;
 }

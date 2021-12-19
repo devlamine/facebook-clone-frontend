@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <>
-      {chatPopUpRedux && !chatPopUpMinimized && (
+      {chatPopUpRedux && (
         <ChatPopUp userData={userDataRedux} chatPopUp={chatPopUpRedux} />
       )}
 

@@ -13,6 +13,8 @@ const ImageUploadModal = ({
   userData,
   mode,
   modalType,
+  setRunUseEffect,
+  runUseEffect,
 }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -49,12 +51,18 @@ const ImageUploadModal = ({
     let profile = "profile";
     if (modalType === "profile") {
       updateProfile(token, userId, images, profile).then((res) => {
-        updateUserLocal(res.data, () => setVisible(false));
+        updateUserLocal(res.data, () => {
+          setVisible(false);
+          setRunUseEffect(!runUseEffect);
+        });
       });
     } else {
       let coverPhoto = images;
       updateProfile(token, userId, coverPhoto, cover).then((res) => {
-        updateUserLocal(res.data, () => setVisible(false));
+        updateUserLocal(res.data, () => {
+          setVisible(false);
+          setRunUseEffect(!runUseEffect);
+        });
       });
     }
   };
@@ -64,7 +72,7 @@ const ImageUploadModal = ({
         closable={true}
         style={
           mode === "dark"
-            ? { backgroundColor: "#00305e", color: "white" }
+            ? { backgroundColor: "#242526", color: "white" }
             : {
                 backgroundColor: "#fff",
                 color: "black",
@@ -81,7 +89,7 @@ const ImageUploadModal = ({
         <div
           style={
             mode === "dark"
-              ? { backgroundColor: "#00305e", color: "white" }
+              ? { backgroundColor: "#242526", color: "white" }
               : {
                   backgroundColor: "#fff",
                   color: "black",
@@ -153,6 +161,8 @@ const ImageUploadModal = ({
             mode={mode}
             setVisible={setVisible}
             modalType={modalType}
+            setRunUseEffect={setRunUseEffect}
+            runUseEffect={runUseEffect}
           />
         </div>
       </Modal>

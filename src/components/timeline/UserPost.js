@@ -24,7 +24,7 @@ const UserPost = ({
             <div
               style={
                 mode === "dark"
-                  ? { backgroundColor: "#012243", borderRadius: "6px" }
+                  ? { backgroundColor: "#242526", borderRadius: "6px" }
                   : { backgroundColor: "white", borderRadius: "6px" }
               }
               className="userinfo-div-main p-4"

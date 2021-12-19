@@ -220,7 +220,7 @@ const SubMenu = ({ userData, userIdParams, mode, setRunUseEffect }) => {
       <div
         style={
           mode === "dark"
-            ? { backgroundColor: "#012243" }
+            ? { backgroundColor: "#18191a" }
             : { backgroundColor: "white" }
         }
         className="sticky-menu"
@@ -301,7 +301,7 @@ const SubMenu = ({ userData, userIdParams, mode, setRunUseEffect }) => {
       <div
         style={
           mode === "dark"
-            ? { backgroundColor: "rgb(0, 48, 94)" }
+            ? { backgroundColor: "#18191a" }
             : { backgroundColor: "#f0f2f5" }
         }
         className="row main-page-timeline"

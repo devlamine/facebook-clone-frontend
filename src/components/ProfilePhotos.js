@@ -5,7 +5,14 @@ import { updateProfile } from "../functions/user";
 import { isAuthenticated, updateUserLocal } from "../functions/auth";
 import { notification } from "antd";
 
-const ProfilePhotos = ({ userData, mode, setVisible, modalType }) => {
+const ProfilePhotos = ({
+  userData,
+  mode,
+  setVisible,
+  modalType,
+  setRunUseEffect,
+  runUseEffect,
+}) => {
   const changeProfile = (selectedPhoto, placement) => {
     const userId = userData._id;
     const token = isAuthenticated().token;
@@ -13,6 +20,7 @@ const ProfilePhotos = ({ userData, mode, setVisible, modalType }) => {
     updateProfile(token, userId, selectedPhoto, modalType).then((res) =>
       updateUserLocal(res.data, () => {
         setVisible(false);
+        setRunUseEffect(!runUseEffect);
         notification.open({
           message:
             "Your " + modalType + " photo has been updated successfully.",
@@ -27,7 +35,7 @@ const ProfilePhotos = ({ userData, mode, setVisible, modalType }) => {
       <div
         style={
           mode === "dark"
-            ? { backgroundColor: "#00305e", color: "white" }
+            ? { backgroundColor: "#242526", color: "white" }
             : {
                 backgroundColor: "#fff",
                 color: "black",
@@ -39,7 +47,7 @@ const ProfilePhotos = ({ userData, mode, setVisible, modalType }) => {
         <h5
           style={
             mode === "dark"
-              ? { backgroundColor: "#00305e", color: "white" }
+              ? { backgroundColor: "#242526", color: "white" }
               : {
                   backgroundColor: "#fff",
                   color: "black",

@@ -17,7 +17,7 @@ const Createstory = () => {
           style={
             mode === "dark"
               ? {
-                  backgroundColor: "rgb(0, 21, 41)",
+                  backgroundColor: "#242526",
                   height: "100vh",
                   color: "white",
                 }

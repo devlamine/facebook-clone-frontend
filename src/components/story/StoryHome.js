@@ -38,7 +38,7 @@ const StoryHome = () => {
         style={
           mode === "light"
             ? { backgroundColor: "#d6d7da" }
-            : { backgroundColor: "rgb(0, 21, 41)" }
+            : { backgroundColor: "#242526" }
         }
         className="story-main-card mx-2"
       >
@@ -48,6 +48,7 @@ const StoryHome = () => {
             src={profilePhoto[profilePhoto.length - 1].url}
             height="112px"
             width="110px"
+            alt="profile"
           />
         ) : (
           <Avatar shape="square" size={111} style={{ backgroundColor: "blue" }}>

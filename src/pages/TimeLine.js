@@ -29,7 +29,7 @@ const TimeLine = () => {
     document.body.style.backgroundColor = "white";
     document.body.style.color = "black";
   } else {
-    document.body.style.backgroundColor = "#012243";
+    document.body.style.backgroundColor = "#18191a";
     document.body.style.color = "white";
   }
 
@@ -49,7 +49,7 @@ const TimeLine = () => {
         setLoading(false);
       });
     }
-  }, [visible, runUseEffect]);
+  }, [runUseEffect]);
 
   const handleImageModal = (photoType) => {
     debugger;
@@ -113,6 +113,7 @@ const TimeLine = () => {
                         userData.profilePhoto[userData.profilePhoto.length - 1]
                           .url
                       }
+                      alt="profile"
                       width="200px"
                       height="200px"
                       style={
@@ -163,6 +164,8 @@ const TimeLine = () => {
                         modalType={modalType}
                         visible={visible}
                         setVisible={setVisible}
+                        setRunUseEffect={setRunUseEffect}
+                        runUseEffect={runUseEffect}
                         userData={userData}
                         mode={mode}
                       />

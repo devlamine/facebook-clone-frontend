@@ -10,10 +10,10 @@ const FriendsHome = () => {
   const { userIdParams } = useParams();
   const { mode } = useSelector((state) => ({ ...state }));
   if (mode === "light") {
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "rgb(240, 242, 245)";
     document.body.style.color = "black";
   } else {
-    document.body.style.backgroundColor = "#012243";
+    document.body.style.backgroundColor = "#1a1a1a";
     document.body.style.color = "white";
   }
   return (

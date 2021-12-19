@@ -19,7 +19,7 @@ const StoryCard = ({ story }) => {
         style={
           mode === "light"
             ? { backgroundColor: "#d6d7da" }
-            : { backgroundColor: "rgb(0, 21, 41)" }
+            : { backgroundColor: "#1c1e21" }
         }
         className="story-main-card mx-1"
       >

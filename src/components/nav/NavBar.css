@@ -4,6 +4,7 @@
 
 .nav-setting {
   margin-left: 15%;
+  color: rgb(241, 239, 239);
 }
 
 @media screen and (max-width: 600px) {

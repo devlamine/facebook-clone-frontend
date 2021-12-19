@@ -20,10 +20,10 @@ const FriendRequests = ({ onlyCoreComponents }) => {
   const [friendRequests, setFriendRequests] = useState([]);
 
   if (mode === "light") {
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "rgb(240, 242, 245)";
     document.body.style.color = "black";
   } else {
-    document.body.style.backgroundColor = "#012243";
+    document.body.style.backgroundColor = "#1a1a1a";
     document.body.style.color = "white";
   }
 
@@ -53,7 +53,7 @@ const FriendRequests = ({ onlyCoreComponents }) => {
                   <div
                     style={
                       mode === "dark"
-                        ? { backgroundColor: "#001529" }
+                        ? { backgroundColor: "#242526" }
                         : { backgroundColor: "white" }
                     }
                     key={i}

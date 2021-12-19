@@ -6,6 +6,26 @@
   max-width: 14rem;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar > div {
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.sidebar > div > img {
+  margin-right: 5px;
+}
+
+.sidebar > div:hover {
+  background-color: #615e5e42;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 750px) {
   .sidebar {
     display: none;
