@@ -1,5 +1,6 @@
 # Facebook clone
 
+<h3>Home page demo</h3>
 <img width="50%" height="50%" src="ss/home.jpg"></img>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
