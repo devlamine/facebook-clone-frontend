@@ -12,6 +12,67 @@
 <h3>Multiple images upload</h3>
 <img width="50%" height="50%" src="ss/creatingPostMultiplePhotots.jpg"></img>
 
+<h3>Create story</h3>
+<img width="50%" height="50%" src="ss/createStory.jpg"></img>
+
+<h3>Story preview</h3>
+<p>users can add multiple images/videos and text</p>
+<img width="50%" height="50%" src="ss/storyPreview.jpg"></img>
+
+<h3>Friends page</h3>
+<img width="50%" height="50%" src="ss/friends.jpg"></img>
+
+<h3>Chat page demo</h3>
+<img width="50%" height="50%" src="ss/chats.jpg"></img>
+
+<h3>chat pop up</h3>
+<img width="50%" height="50%" src="ss/chatMini.jpg"></img>
+
+<h3>Timeline page demo</h3>
+<img width="50%" height="50%" src="ss/timelinemain.jpg"></img>
+
+<h3>Profile photo upload on my timeline</h3>
+<img width="50%" height="50%" src="ss/profileUpload.jpg"></img>
+
+<h3>Cover photo upload on my timeline</h3>
+<img width="50%" height="50%" src="ss/coverPhoto.jpg"></img>
+
+<h3>Timeline post demo</h3>
+<img width="50%" height="50%" src="ss/timelinePosts.jpg"></img>
+
+<h3>Friend's timeline new chat pop up</h3>
+<img width="50%" height="50%" src="ss/timelineNewChat.jpg"></img>
+
+<h3>chat pop up minimzied</h3>
+<img width="50%" height="50%" src="ss/minimizedChat.jpg"></img>
+
+<h3>Cretae post on friend's timeline</h3>
+<img width="50%" height="50%" src="ss/timelineCreatePost.jpg"></img>
+
+<h3>Friend request on friend's timeline</h3>
+<img width="50%" height="50%" src="ss/friendRestTimeline.jpg"></img>
+
+<h3>Add friend on suggested user timeline page</h3>
+<img width="50%" height="50%" src="ss/friendSuggestionTimeline.jpg"></img>
+
+<h3>Notifications</h3>
+<img width="50%" height="50%" src="ss/notifications.jpg"></img>
+
+<h3>Post with only text</h3>
+<img width="50%" height="50%" src="ss/postOnlyText.jpg"></img>
+
+<h3>Post with video/image</h3>
+<img width="50%" height="50%" src="ss/videoPost.jpg"></img>
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
