@@ -1,5 +1,6 @@
 # Facebook clone
 
+<div style="display:flex">
 <h3>Home page demo</h3>
 <img width="50%" height="50%" src="ss/home.jpg"></img>
 
@@ -64,6 +65,7 @@
 <h3>Post with video/image</h3>
 <img width="50%" height="50%" src="ss/videoPost.jpg"></img>
 
+<div>
 
 
 
