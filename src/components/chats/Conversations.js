@@ -10,14 +10,23 @@ const Conversations = ({
   selectedConversation,
   setSelectedConversation,
   onlineUsers,
+  setTotalPagesForChat,
+  currentLimitForChat,
+  currentPageForChat,
 }) => {
   const userId = isAuthenticated() && isAuthenticated().user._id;
   const { mode } = useSelector((state) => ({ ...state }));
 
   const openConversation = (conversation) => {
-    getChatsByConId(isAuthenticated().token, conversation._id).then((res) => {
+    getChatsByConId(
+      isAuthenticated().token,
+      conversation._id,
+      currentPageForChat,
+      currentLimitForChat
+    ).then((res) => {
       // console.log("this is clicked conversation---->", res.data);
-      setSelectedConversation(res.data);
+      setSelectedConversation(res.data.chat);
+      setTotalPagesForChat(res.data.totalPages);
     });
   };
 

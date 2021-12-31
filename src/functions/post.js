@@ -12,19 +12,25 @@ export const createPost = (token, post, from, userId = null) =>
     }
   );
 
-export const fetchPosts = (token) =>
-  axios.get(`${process.env.REACT_APP_API}/getPosts`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const fetchPosts = (token, limit, page) =>
+  axios.get(
+    `${process.env.REACT_APP_API}/getPosts?page=${page}&limit=${limit}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
-export const fetchPostsByuser = (token, userId) =>
-  axios.get(`${process.env.REACT_APP_API}/getPosts/${userId}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const fetchPostsByuser = (token, userId, page, limit) =>
+  axios.get(
+    `${process.env.REACT_APP_API}/getPosts/${userId}?page=${page}&limit=${limit}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
 export const like = (token, postId, userId) =>
   axios.put(

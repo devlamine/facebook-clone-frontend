@@ -18,12 +18,15 @@ export const getConversation = (token, userId) =>
     },
   });
 
-export const getChatsByConId = (token, conversationId) =>
-  axios.get(`${process.env.REACT_APP_API}/chat/${conversationId}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const getChatsByConId = (token, conversationId, page, limit) =>
+  axios.get(
+    `${process.env.REACT_APP_API}/chat/${conversationId}?page=${page}&limit=${limit}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
 export const getChatForPopUpView = (token, userId, requestedUserId) =>
   axios.get(

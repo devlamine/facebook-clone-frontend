@@ -6,6 +6,7 @@
     "@ant-design/icons": "^4.6.3",
     "@craco/craco": "^6.2.0",
     "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -13,6 +14,7 @@
     "antd": "^4.16.12",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
+    "emoji-picker-react": "^3.4.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-image-file-resizer": "^0.4.7",
@@ -25,7 +27,6 @@
     "simple-peer": "^9.11.0",
     "socket.io-client": "^4.3.2",
     "timeago-react": "^3.0.3",
-    "emoji-picker-react": "^3.4.8",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

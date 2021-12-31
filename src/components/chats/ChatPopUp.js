@@ -45,6 +45,8 @@ const ChatPopUp = ({ loggedInUserInfo, userData, setChatPopUp, chatPopUp }) => {
   }, [chatPopUp]);
 
   const displaySize = DisplaySize();
+  const { width, height } = displaySize;
+  console.log(width, height, "display size");
 
   const handleChatPopUp = () => {
     // setChatPopUp(false);

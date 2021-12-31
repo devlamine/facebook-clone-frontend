@@ -118,8 +118,8 @@ const TimeLine = () => {
                       height="200px"
                       style={
                         mode === "light"
-                          ? { borderRadius: "50%", border: "5px solid white" }
-                          : { borderRadius: "50%", border: "5px solid #012243" }
+                          ? { borderRadius: "50%", border: "6px solid white" }
+                          : { borderRadius: "50%", border: "6px solid #18191a" }
                       }
                     />
                   ) : (
@@ -129,12 +129,12 @@ const TimeLine = () => {
                         mode === "light"
                           ? {
                               borderRadius: "50%",
-                              border: "5px solid white",
+                              border: "6px solid white",
                               backgroundColor: "blue",
                             }
                           : {
                               borderRadius: "50%",
-                              border: "5px solid #012243",
+                              border: "6px solid #18191a",
                               backgroundColor: "blue",
                             }
                       }

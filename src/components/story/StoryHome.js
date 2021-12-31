@@ -66,7 +66,7 @@ const StoryHome = () => {
       </div>
       {stories.map((story, index) => (
         <span key={index}>
-          <StoryCard story={story} />
+          <StoryCard allStories={stories} story={story} />
         </span>
       ))}
     </div>

@@ -51,19 +51,6 @@ const SubMenu = ({ userData, userIdParams, mode, setRunUseEffect }) => {
 
   const userName = userData.firstName + " " + userData.lastName;
 
-  const loadPosts = () => {
-    fetchPostsByuser(token, userIdParams)
-      .then((res) => {
-        setPosts(res.data.timeline);
-        setSelectedUserId(res.data._id);
-      })
-      .catch((e) => console.log(e));
-  };
-  //load all posts of the user
-  useEffect(() => {
-    loadPosts();
-  }, [visible]);
-
   //get the user info of the logged in user
   useEffect(() => {
     getUser(token, userId).then((res) => setLoggedInUserInfo(res.data));
@@ -143,7 +130,6 @@ const SubMenu = ({ userData, userIdParams, mode, setRunUseEffect }) => {
         friends: false,
         photos: false,
       });
-      loadPosts();
     } else if (type === "about") {
       setLinkActive({
         ...linkActive,
@@ -375,6 +361,9 @@ const SubMenu = ({ userData, userIdParams, mode, setRunUseEffect }) => {
           posts={posts}
           userData={userData}
           selectedUserId={selectedUserId}
+          userIdParams={userIdParams}
+          setPosts={setPosts}
+          setSelectedUserId={setSelectedUserId}
         />
         {/* photos */}
         <UserPhotos userData={userData} linkActive={linkActive} mode={mode} />

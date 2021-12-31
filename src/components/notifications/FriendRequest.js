@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Avatar } from "antd";
 const FriendRequest = ({ u, handleFriendRequest, decilneFrndRequest }) => {
   const userId = isAuthenticated().user._id;
+  console.log(u);
   return (
     <>
       <p>

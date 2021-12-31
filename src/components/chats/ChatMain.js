@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { isAuthenticated } from "../../functions/auth";
-import { postNewMsg } from "../../functions/chat";
+import { getChatsByConId, postNewMsg } from "../../functions/chat";
 import { io } from "socket.io-client";
 import Message from "./Message";
 import { Avatar, Badge } from "antd";
@@ -9,6 +9,7 @@ import tone from "../../mp3/google-duo-best-ringtone-36698.mp3";
 import newMsgTone from "../../mp3/Messenger - Notification Tone.mp3";
 import Peer from "simple-peer";
 import { useSelector } from "react-redux";
+import ScrollValue from "../../customHooks/ScrollValue";
 
 const ChatMain = ({
   selectedConversation,
@@ -17,6 +18,12 @@ const ChatMain = ({
   onlineUsers,
   setOnlineUsers,
   mode,
+  setCurrentLimitForChat,
+  currentLimitForChat,
+  setCurrentPageForChat,
+  currentPageForChat,
+  totalPagesForChat,
+  conversationId,
 }) => {
   const userId = isAuthenticated() && isAuthenticated().user._id;
   const user = isAuthenticated()?.user;
@@ -28,6 +35,9 @@ const ChatMain = ({
   const [userLastName, setUserLastName] = useState("");
   const [selectedFrndId, setSelectedFrndId] = useState("");
   const [userProfiles, setUserProfiles] = useState([]);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [scrollHeight, setScrollHeight] = useState(0);
+  const [clientHeight, setClientHeight] = useState(0);
 
   const [enable, setEnable] = useState(false);
   const [ioReload, setIoReload] = useState(false);
@@ -44,6 +54,7 @@ const ChatMain = ({
   const streamData = useRef(null);
   const incommingVideo = useRef(null);
   const toneRef = useRef(null);
+  const scrollRef = useRef(null);
 
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
@@ -58,6 +69,20 @@ const ChatMain = ({
   const msgRef = useRef();
 
   let requiredInfo = {};
+
+  //const { clientHeight, scrollHeight, scrollTop } = ScrollValue();
+
+  const getChats = () => {
+    getChatsByConId(
+      isAuthenticated().token,
+      conversationId,
+      currentPageForChat,
+      currentLimitForChat
+    ).then((res) => {
+      // console.log("this is clicked conversation---->", res.data);
+      SetselectedConversation((prevState) => [res.data.chat, ...prevState]);
+    });
+  };
 
   // const { onlineUsersRedux } = useSelector((state) => ({ ...state }));
   // setOnlineUsers(onlineUsersRedux);
@@ -93,6 +118,15 @@ const ChatMain = ({
   }, []);
 
   useEffect(() => {
+    if (scrollTop === 0) {
+      setCurrentPageForChat((pre) => pre + 1);
+      console.log("currentPageForChat--->", currentPageForChat);
+      getChats();
+    }
+    console.log("selectedConversation--->", selectedConversation);
+  }, [scrollTop]);
+
+  useEffect(() => {
     const newMsg = {
       senderId: {
         firstName: userFirstName,
@@ -116,6 +150,10 @@ const ChatMain = ({
     getUserInfo();
     // socket.current.emit("messageToActualUser", receverId());
     ref.current?.scrollIntoView({ behavior: "smooth" });
+    scrollRef?.current?.addEventListener("scroll", (event) => {
+      // console.log("scrollEvent", scrollRef?.current?.scrollTop);
+      setScrollTop(scrollRef?.current?.scrollTop);
+    });
     // console.log("selectedConversation", selectedConversation);
   }, [messages, enable, ioReload, selectedConversation]);
 
@@ -277,6 +315,7 @@ const ChatMain = ({
         </>
       )}
       <audio hidden ref={toneRef} loop />
+
       {selectedConversation.length > 1 ? (
         <>
           <div
@@ -321,7 +360,7 @@ const ChatMain = ({
                   />
                 </span>
               </div>
-              <div className="chat-main-messages">
+              <div ref={scrollRef} className="chat-main-messages">
                 {selectedConversation.map((message, i) => (
                   <span ref={ref} key={i}>
                     <Message

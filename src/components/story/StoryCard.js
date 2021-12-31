@@ -4,18 +4,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import PopUpViewStory from "./PopUpViewStory";
 
-const StoryCard = ({ story }) => {
+const StoryCard = ({ story, allStories }) => {
   const { mode } = useSelector((state) => ({ ...state }));
   const [visible, setVisible] = useState(false);
-
-  const handlePopUpView = () => {
-    setVisible(true);
-  };
 
   return (
     <>
       <div
-        onClick={handlePopUpView}
+        onClick={() => setVisible(true)}
         style={
           mode === "light"
             ? { backgroundColor: "#d6d7da" }
@@ -30,7 +26,7 @@ const StoryCard = ({ story }) => {
             alt="story"
             width="113px"
             height="100%"
-            style={{ obhere: "fill" }}
+            style={{ objectFit: "fill" }}
           />
         ) : (
           <img
@@ -63,6 +59,7 @@ const StoryCard = ({ story }) => {
         </div>
       </div>
       <PopUpViewStory
+        allStories={allStories}
         story={story}
         mode={mode}
         visible={visible}

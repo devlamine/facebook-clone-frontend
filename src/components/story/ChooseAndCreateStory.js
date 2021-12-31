@@ -76,7 +76,8 @@ const ChooseAndCreateStory = ({ mode, setPreviewMode, images, setImages }) => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
+                gap: 30,
                 alignItems: "center",
                 height: "90vh",
               }}

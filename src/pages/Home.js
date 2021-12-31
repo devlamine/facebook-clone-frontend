@@ -3,34 +3,27 @@ import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import SideBar from "../components/nav/SideBar";
 import WhatsInYourMind from "../components/WhatsInYourMind";
-import Post from "../components/Post";
 import NavBar from "../components/nav/NavBar";
 import { isAuthenticated } from "../functions/auth";
-import { Link, useHistory } from "react-router-dom";
-import { fetchPosts } from "../functions/post";
 import {
   getAllOnlineUsers,
   getBirthdaysInfo,
   getUser,
 } from "../functions/user";
-import { Spin } from "antd";
 import birthDayLogo from "../Images/birthdaylogo.png";
 import StoryHome from "../components/story/StoryHome";
 import OnlineUsersSideBar from "../components/sidebarHome/OnlineUsersSideBar";
 import FriendRestHome from "../components/sidebarHome/FriendRestHome";
 import "./home.css";
+import HomePost from "../components/HomePost";
 
 const Home = () => {
-  const history = useHistory();
   const socket = useRef();
   const { mode } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
 
-  const [posts, setPosts] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [reFetchPosts, setReFetchPosts] = useState(false);
-  const [onlineUsers, setOnlineUsers] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState({});
 
   const token = isAuthenticated().token;
@@ -53,20 +46,6 @@ const Home = () => {
 
     //return () => getOnlineUsers();
   }, []);
-
-  useEffect(() => {
-    setLoading(true);
-    if (!isAuthenticated()) {
-      history.push("/login");
-    } else {
-      fetchPosts(token)
-        .then((res) => {
-          setPosts(res.data);
-          setLoading(false);
-        })
-        .catch((err) => console.log("Failed to load posts"));
-    }
-  }, [reFetchPosts]);
 
   const getOnlineUsersTest = () => {
     socket.current.on("getUsers", (users) => {
@@ -102,49 +81,19 @@ const Home = () => {
             <SideBar />
           </div>
           <div className="col-md-4"></div>
-          {!loading ? (
-            <div className="col-md-7">
-              <StoryHome />
 
-              <WhatsInYourMind
-                mode={mode}
-                visible={visible}
-                setVisible={setVisible}
-                setReFetchPosts={setReFetchPosts}
-                from="home"
-              />
-              {posts.length >= 1 ? (
-                posts.map((post) => (
-                  <Post
-                    key={post._id}
-                    post={post}
-                    mode={mode}
-                    selectedUserId={null}
-                  />
-                ))
-              ) : (
-                <h4
-                  style={
-                    mode === "light" ? { color: "black" } : { color: "white" }
-                  }
-                  className="my-5 py-5"
-                >
-                  Looks like your friend list is empty. Start adding friends to
-                  see their posts.
-                  <p>
-                    <Link to={`/friends/suggestions/${userId}`}>
-                      Click here to add friends.
-                    </Link>
-                  </p>
-                </h4>
-              )}
-            </div>
-          ) : (
-            <Spin
-              style={{ margin: "100px", marginTop: "20%" }}
-              tip="Loading posts..."
+          <div className="col-md-7">
+            <StoryHome />
+
+            <WhatsInYourMind
+              mode={mode}
+              visible={visible}
+              setVisible={setVisible}
+              setReFetchPosts={setReFetchPosts}
+              from="home"
             />
-          )}
+            <HomePost reFetchPosts={reFetchPosts} mode={mode} />
+          </div>
 
           <div
             className={

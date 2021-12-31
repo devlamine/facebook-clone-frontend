@@ -14,6 +14,7 @@ import likeTone from "../mp3/Like Button Press - Sound Effect.mp3";
 import { useSelector } from "react-redux";
 //import { Love, Happy, Hate, Fear, CryingFace } from "animated-emojis";
 //import FacebookEmoji from "react-facebook-emoji";
+//import wowEmoji from "../Images/emoji/wow.gif";
 
 const Post = ({ post, mode, userData, selectedUserId }) => {
   const ref = useRef(null);
@@ -232,10 +233,11 @@ const Post = ({ post, mode, userData, selectedUserId }) => {
             </div>
           </div>
         </div>
+
         <div className="row">
           {post.postBody.length > 1 && (
             <div className="mx-3 my-2">
-              <p>{post.postBody}</p>
+              <p>{post.postBody} </p>
             </div>
           )}
           {post.images.length >= 1 && (

@@ -16,7 +16,7 @@
 }
 
 .likeAnimation {
-  animation: likeAnimation 1s ease-in-out;
+  animation: likeAnimation 0.5s ease-in-out;
 }
 
 .gif-emojies {

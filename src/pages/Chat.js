@@ -15,6 +15,9 @@ const Chat = () => {
   const [conversation, setConversation] = useState([]);
   const [selectedConversation, setSelectedConversation] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
+  const [totalPagesForChat, setTotalPagesForChat] = useState(0);
+  const [currentPageForChat, setCurrentPageForChat] = useState(1);
+  const [currentLimitForChat, setCurrentLimitForChat] = useState(10);
 
   const { mode } = useSelector((state) => ({ ...state }));
   if (mode === "light") {
@@ -47,6 +50,9 @@ const Chat = () => {
             selectedConversation={selectedConversation}
             setSelectedConversation={setSelectedConversation}
             onlineUsers={onlineUsers}
+            setTotalPagesForChat={setTotalPagesForChat}
+            currentPageForChat={currentPageForChat}
+            currentLimitForChat={currentLimitForChat}
           />
         </div>
         <div className="col-md-6">
@@ -56,7 +62,13 @@ const Chat = () => {
             conversations={conversation}
             onlineUsers={onlineUsers}
             setOnlineUsers={setOnlineUsers}
+            conversationId={selectedConversation.conversationId}
             mode={mode}
+            totalPagesForChat={totalPagesForChat}
+            currentPageForChat={currentPageForChat}
+            setCurrentPageForChat={setCurrentPageForChat}
+            currentLimitForChat={currentLimitForChat}
+            setCurrentLimitForChat={setCurrentLimitForChat}
           />
         </div>
         <div className="col-md-3 chats-hide">
