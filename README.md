@@ -3,6 +3,15 @@
 <h3>Home page demo</h3>
 <img width="50%" height="50%" src="ss/home.jpg"></img>
 
+<h3>Story page demo</h3>
+<img width="50%" height="50%" src="ss/stories.jpg"></img>
+
+<h3>Create post demo</h3>
+<img width="50%" height="50%" src="ss/homePost.jpg"></img>
+
+<h3>Multiple images upload</h3>
+<img width="50%" height="50%" src="ss/creatingPostMultiplePhotots.jpg"></img>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
