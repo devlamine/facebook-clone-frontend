@@ -1,6 +1,6 @@
 # Facebook clone
 
-<div style="display:flex">
+<div style="display:inline-block">
 <h3>Home page demo</h3>
 <img width="50%" height="50%" src="ss/home.jpg"></img>
 
