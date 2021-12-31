@@ -1,17 +1,18 @@
 # Facebook clone
 
 <h2>Complete clone of facebook made with React</h2>
+<h5>Clone the repositories and run <code>npm install</code> and you are good to go!</h5>
 <br />
 <bold>This clone has following features:
 <ul>
-    <li>Creating posts with images, video, text and emojies. Fething post with infinite scroll</li>
-    <li>Real time comments and like</li>
+    <li>Creating posts with images, video, text and emojies. Fething post with infinite scroll.</li>
+    <li>Real time comments and like.</li>
     <li>Online friends list with real time chat and video calling facility.(video calling is under development)</li>
-    <li>Chat can be in form of pop up, minimized and chating/messenger page</li>
-    <li>Users can create multiple stories with multiple images/videos, auto next, next & previous controls</li>
+    <li>Chat can be in form of pop up, minimized and chating/messenger page.</li>
+    <li>Users can create multiple stories with multiple images/videos, auto next, next & previous controls.</li>
     <li>Users can uplaod profile/cover photo and can also choose from existing photos.</li>
     <li>Friend's timeline with infinite scrolling suppprt.</li>
-    <li>All pages are available in Light/Dark mode</li>
+    <li>All pages are available in Light/Dark mode.</li>
     <li>Notification of liking tagging, birthdays, likes and comments.</li>
     <li>And many more features...</li> 
 </ul>
