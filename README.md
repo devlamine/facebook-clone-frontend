@@ -17,7 +17,7 @@
     <li>And many more features...</li> 
 </ul>
   
-  <h5>These are the screenshots of this Facebook clone</h5>
+  <h5>These are the screenshots of this Facebook clone:</h5>
 
 <div style="display:inline-block">
 <h3>Home page demo</h3>
