@@ -1,6 +1,6 @@
 # Facebook clone
 
-![Screenshot](ss/home.jpg)
+<img src="ss/home.jpg"></img>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
