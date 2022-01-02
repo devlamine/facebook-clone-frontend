@@ -1,7 +1,7 @@
 # Facebook clone
 
 <h2>Complete clone of facebook made with React</h2>
-<h5>Clone the repositories and run <code>npm install</code> and you are good to go!</h5>
+<h5>Clone the repositories and run <code>npm install</code> and your front-end is all set!</h5>
 <br />
 <bold>This clone has following features:
 <ul>
